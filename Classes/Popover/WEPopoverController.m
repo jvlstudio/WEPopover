@@ -151,6 +151,8 @@
 	
 	[keyView addSubview:backgroundView];
 	
+    [keyView bringSubviewToFront:backgroundView];
+    
 	containerView.frame = [theView convertRect:containerView.frame toView:backgroundView];
 	
 	[backgroundView addSubview:containerView];
@@ -217,7 +219,7 @@
 - (UIView *)keyView {
 	UIWindow *w = [[UIApplication sharedApplication] keyWindow];
 	if (w.subviews.count > 0) {
-		return [w.subviews objectAtIndex:0];
+		return [w.subviews lastObject];
 	} else {
 		return w;
 	}
