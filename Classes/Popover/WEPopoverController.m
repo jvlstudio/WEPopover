@@ -157,7 +157,19 @@
     
 	containerView.frame = [theView convertRect:containerView.frame toView:backgroundView];
 	
-	[backgroundView addSubview:containerView];
+    
+    if (animated) {
+        backgroundView.alpha = 0.0;
+        
+        [UIView beginAnimations:@"FadeBackgroundIn" context:nil];
+		[UIView setAnimationDuration:FADE_DURATION];
+		backgroundView.alpha = 1.0;
+		[UIView commitAnimations];
+    } else {
+        backgroundView.alpha = 1.0;
+    }
+    
+    [backgroundView addSubview:containerView];
 	
 	containerView.contentView = contentViewController.view;
 	containerView.autoresizingMask = ( UIViewAutoresizingFlexibleLeftMargin |
@@ -253,6 +265,7 @@
 			
 			[UIView setAnimationDuration:FADE_DURATION];
 			
+            backgroundView.alpha = 0.0;
 			self.view.alpha = 0.0;
 			
 			[UIView commitAnimations];
