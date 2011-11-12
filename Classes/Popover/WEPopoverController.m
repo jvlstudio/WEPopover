@@ -35,9 +35,11 @@
 @synthesize containerViewProperties;
 @synthesize context;
 @synthesize passthroughViews;
+@synthesize backgroundColor;
 
 - (id)init {
 	if ((self = [super init])) {
+        self.backgroundColor = [UIColor clearColor];
 	}
 	return self;
 }
@@ -146,7 +148,7 @@
 									   UIViewAutoresizingFlexibleTopMargin |
 									   UIViewAutoresizingFlexibleHeight |
 									   UIViewAutoresizingFlexibleBottomMargin);
-	backgroundView.backgroundColor = [UIColor clearColor];
+	backgroundView.backgroundColor = self.backgroundColor;
 	backgroundView.delegate = self;
 	
 	[keyView addSubview:backgroundView];

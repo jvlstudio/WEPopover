@@ -47,6 +47,7 @@
 @property (nonatomic, retain) WEPopoverContainerViewProperties *containerViewProperties;
 @property (nonatomic, retain) id <NSObject> context;
 @property (nonatomic, copy) NSArray *passthroughViews;
+@property (nonatomic, retain) UIColor *backgroundColor;
 
 - (id)initWithContentViewController:(UIViewController *)theContentViewController;
 
